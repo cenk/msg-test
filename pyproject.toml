@@ -12,7 +12,7 @@ description = "An Endstone plugin that allows you to send players a welcome mess
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-keywords = ["minecraft", "endstone", "plugin", "welcome", "message", "chat", "tip", "toast"]
+keywords = ["minecraft", "endstone", "plugin", "welcome", "message", "chat", "tip", "toast", "title", "popup"]
 
 [project.urls]
 Homepage = "https://github.com/cenk/endstone-welcome-message"
