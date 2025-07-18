@@ -1,24 +1,20 @@
 [welcome_message]
 
-# Welcome Message master switch
-# true = enabled
-# false = disabled
-enabled = true
-
 # Welcome message type
-# chat = Chat message
-# tip = Tip message
-# toast = Toast message
-# popup = Popup message
-type = "chat"
+# 0 = Disable Welcome Message
+# 1 = Chat message
+# 2 = Tip message
+# 3 = Toast message
+# 4 = Popup message
+type = 1
 
 # Title of Toast message
 # Effective only when type is toast
-title = "Welcome Title"
+header = "Welcome Header"
 
-# Welcome message text
+# Welcome message body
 # You can use ..........
-text = "Welcome Text"
+body = "Welcome message"
 
 # Wait before welcome message in seconds.
 # Valid values are between 0 and 10.
