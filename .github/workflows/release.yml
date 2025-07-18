@@ -26,10 +26,16 @@ jobs:
         
     - name: Build a binary wheel
       run: python3 -m build
-    
+
+    - name: validate version
+      id: validate_version
+      uses: andstor/file-existence-action@v3
+      with:
+        files: "dist/endstone_*${{ github.ref_name }}*.whl"
+
     - name: Release
       uses: softprops/action-gh-release@v2
-      if: ${{ hashFiles('dist/endstone_*${{ github.ref_name }}*.whl') != '' }}
+      if: steps.validate_version.outputs.files_exists == 'true'
       with:
         generate_release_notes: true
         files: "dist/endstone_*${{ github.ref_name }}*.whl"
