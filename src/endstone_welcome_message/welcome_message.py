@@ -29,11 +29,13 @@ class WelcomeMessage(Plugin):
                 case 2:
                     event.player.send_tip(self.welcome_message_body)
                 case 3:
-                    event.player.send_toast(self.welcome_message_header, self.welcome_message_body)
+                    event.player.send_popup(self.welcome_message_body)
                 case 4:
-                    event.player.send_title(self.welcome_message_header, self.welcome_message_body)
+                    event.player.send_toast(self.welcome_message_header, self.welcome_message_body)
                 case 5:
-                    welcome_form()
-
-    def welcome_form(self) -> None:
-        event.player.send_form(MessageForm(self.welcome_message_header, self.welcome_message_body, "Close", None))
+                    event.player.send_title(self.welcome_message_header, self.welcome_message_body)
+                case 6:
+                    welcome_form = MessageForm(
+                        title=f'{ColorFormat.BOLD}{ColorFormat.LIGHT_PURPLE}' + self.welcome_message_header,
+                        content=f'{ColorFormat.GREEN}' + self.welcome_message_body,
+                    )
