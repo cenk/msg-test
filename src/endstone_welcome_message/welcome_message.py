@@ -22,6 +22,7 @@ class WelcomeMessage(Plugin):
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
         if self.welcome_message_enabled:
+            time.sleep(self.welcome_message_wait_before)
             match self.welcome_message_type:
                 case "chat":
                     event.player.send_message(self.welcome_message_text)
