@@ -12,26 +12,22 @@ class WelcomeMessage(Plugin):
         self.logger.info("on_enable is called!")
         self.save_default_config()
         self.register_events(self)
-        self.message_type = self.config["message_type"]
-        self.message_title = self.config["message_title"]
-        self.message_text = self.config["message_text"]
+        
+        self.welcome_message_type = self.config[welcome_message]["type"]
+        self.welcome_message_title = self.config[welcome_message]["title"]
+        self.welcome_message_text = self.config[welcome_message]["text"]
+        self.welcome_message_wait_before =self.config[welcome_message]["wait_before"] 
         
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
-        match self.message_type:
+        match self.welcome_message_type:
             case 0:
                 self.logger.info("Welcome Message is disabled in the config file!")
             case 1:
-                event.player.send_message(self.message_text)
+                event.player.send_message(self.welcome_message_text)
             case 2:
-                event.player.send_tip(self.message_text)
+                event.player.send_tip(self.welcome_message_text)
             case 3:
-                event.player.send_toast(self.message_title, self.message_text)
+                event.player.send_toast(self.welcome_message_title, self.welcome_message_text)
             case _:
                 pass
-
-    def save_message(self) -> None:
-        self.config["notice"]["title"] = self.notice_title
-        self.plugin.config["notice"]["body"] = self.notice_body
-        self.plugin.config["notice"]["button"] = self.notice_button
-        self.plugin.save_config()
