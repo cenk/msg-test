@@ -1,6 +1,7 @@
 [welcome_message]
 
 # Welcome message type
+# Valid values are between 0 and 5.
 # 0 = Disable Welcome Message
 # 1 = Chat message
 # 2 = Tip message
@@ -9,7 +10,7 @@
 # 5 = Popup message
 type = 1
 
-# Header of Toast or Title message
+# Toast or Title message header
 # Effective only when type is 3 (Toast) or 4 (Title)
 header = "Welcome Header"
 
@@ -19,5 +20,5 @@ body = "Welcome message"
 
 # Wait before welcome message in seconds.
 # Valid values are between 0 and 10.
-# 0 disables wait_before.
+# 0 disables waiting.
 wait_before = 0
