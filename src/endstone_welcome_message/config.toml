@@ -3,10 +3,10 @@
 # Welcome message type
 # 0 = chat message
 # 1 = tip
-# 20 = toast
-type = 0
+# 2 = toast
+type = 2
 
 # Title of message
-title = ""
+title = "Welcome Title"
 
-text = ""
+text = "welcome Text"
