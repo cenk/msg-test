@@ -12,13 +12,15 @@ class WelcomeMessage(Plugin):
         self.logger.info("on_enable is called!")
         self.save_default_config()
         self.register_events(self)
-
+        message_type = self.config["welcome"]["message_type"]
+        toast_title = self.config["welcome"]["toast_title"]
+        message_text = self.config["welcome"]["message_text"]
+        
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
-        message_type = self.config["message"]["type"]
-        message_title = self.config["message"]["title"]
-        message_text = self.config["message"]["text"]
-        
+        match message_type:
+            case 0:
+                self.logger.info("Welcome Message is disabled in config file!")
         event.player.send_toast(message_title, message_text)
 
     def save_message(self) -> None:
