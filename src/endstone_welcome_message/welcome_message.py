@@ -16,14 +16,14 @@ class WelcomeMessage(Plugin):
             self.welcome_message_title = str(self.config["welcome_message"]["title"])
             self.welcome_message_text = str(self.config["welcome_message"]["text"])
             self.welcome_message_wait_before = max(0, min(int(self.config["welcome_message"]["wait_before"]), 10))
-            self.logger.info("wait_before: " + str(self.welcome_message_wait_before))
         else:
             self.logger.info("Welcome Message is disabled in the config file!")
 
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
         if self.welcome_message_enabled:
-            time.sleep(self.welcome_message_wait_before)
+            if self.welcome_message_wait_before > 0:
+                time.sleep(self.welcome_message_wait_before)
             match self.welcome_message_type:
                 case "chat":
                     event.player.send_message(self.welcome_message_text)
