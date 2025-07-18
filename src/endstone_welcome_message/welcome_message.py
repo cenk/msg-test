@@ -5,6 +5,11 @@ from endstone.event import event_handler, PlayerJoinEvent
 class WelcomeMessage(Plugin):
     api_version = "0.9"
 
+    def __init__(self):
+        super().__init__()
+        self.last_death_locations = {}
+        self.economy: dict[str, int] = {}
+    
     def on_load(self) -> None:
         self.logger.info("on_load is called!")
 
@@ -12,21 +17,21 @@ class WelcomeMessage(Plugin):
         self.logger.info("on_enable is called!")
         self.save_default_config()
         self.register_events(self)
-        message_type = self.config["welcome"]["message_type"]
-        toast_title = self.config["welcome"]["toast_title"]
-        message_text = self.config["welcome"]["message_text"]
+        self.message_type = self.config["welcome"]["message_type"]
+        self.toast_title = self.config["welcome"]["toast_title"]
+        self.message_text = self.config["welcome"]["message_text"]
         
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
-        match message_type:
+        match self.message_type:
             case 0:
                 self.logger.info("Welcome Message is disabled in the config file!")
             case 1:
-                event.player.send_message(message_text)
+                event.player.send_message(self.message_text)
             case 2:
-                event.player.send_tip(message_text)
+                event.player.send_tip(self.message_text)
             case 3:
-                event.player.send_toast(message_title, message_text)
+                event.player.send_toast(self.message_title, self.message_text)
             case _:
                 pass
 
