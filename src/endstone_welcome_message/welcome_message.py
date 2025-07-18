@@ -17,3 +17,9 @@ class WelcomeMessage(Plugin):
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
         event.player.send_toast("Welcome", ColorFormat.YELLOW + f"Welcome {event.player.name}!")
+
+    def save_message(self) -> None:
+        self.plugin.config["notice"]["title"] = self.notice_title
+        self.plugin.config["notice"]["body"] = self.notice_body
+        self.plugin.config["notice"]["button"] = self.notice_button
+        self.plugin.save_config()
