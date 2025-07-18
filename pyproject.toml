@@ -8,7 +8,7 @@ version = "0.1.12"
 authors = [
     { name = "cenk", email = "cenk@cenk.app" }
 ]
-description = "An Endstone plugin that allows you to send players a welcome message via chat, tip or toast when they join the server."
+description = "An Endstone plugin that allows you to send players a welcome message via chat, tip, toast, title or popup when they join the server."
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
