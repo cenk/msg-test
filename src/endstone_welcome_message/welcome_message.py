@@ -12,8 +12,8 @@ class WelcomeMessage(Plugin):
         self.welcome_message_type = max(0, min(int(self.config["welcome_message"]["type"]), 5))
 
         if self.welcome_message_type > 0:
-            self.welcome_message_title = str(self.config["welcome_message"]["title"])
-            self.welcome_message_text = str(self.config["welcome_message"]["text"])
+            self.welcome_message_header = str(self.config["welcome_message"]["header"])
+            self.welcome_message_body = str(self.config["welcome_message"]["body"])
             self.welcome_message_wait_before = max(0, min(int(self.config["welcome_message"]["wait_before"]), 10))
         else:
             self.logger.info("Welcome Message is disabled in the config file!")
@@ -25,12 +25,12 @@ class WelcomeMessage(Plugin):
                 time.sleep(self.welcome_message_wait_before)
             match self.welcome_message_type:
                 case 1:
-                    event.player.send_message(self.welcome_message_text)
+                    event.player.send_message(self.welcome_message_body)
                 case 2:
-                    event.player.send_tip(self.welcome_message_text)
+                    event.player.send_tip(self.welcome_message_body)
                 case 3:
-                    event.player.send_toast(self.welcome_message_title, self.welcome_message_text)
+                    event.player.send_toast(self.welcome_message_header, self.welcome_message_body)
                 case 4:
-                    event.player.send_popup(self.welcome_message_text)
+                    event.player.send_popup(self.welcome_message_body)
                 case _:
                     pass
