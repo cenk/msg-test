@@ -16,7 +16,7 @@ class WelcomeMessage(Plugin):
             self.welcome_message_title = str(self.config["welcome_message"]["title"])
             self.welcome_message_text = str(self.config["welcome_message"]["text"])
             self.welcome_message_wait_before = max(0, min(int(self.config["welcome_message"]["wait_before"]), 10))
-            self.logger.info("wait_before: " + self.welcome_message_wait_before)
+            self.logger.info("wait_before: " + str(self.welcome_message_wait_before))
         else:
             self.logger.info("Welcome Message is disabled in the config file!")
 
