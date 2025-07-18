@@ -1,12 +1,15 @@
-[message]
-
+[welcome]
 # Welcome message type
-# 0 = chat message
-# 1 = tip
-# 2 = toast
-type = 2
+# 0 = Disable Welcome Message
+# 1 = Chat message
+# 2 = Tip message
+# 3 = Toast message
+message_type = 1
 
-# Title of message
-title = "Welcome Title"
+# Title of Toast message
+# Effective only when message_type is 3
+toast_title = "Welcome Title"
 
-text = "welcome Text"
+# Welcome message text
+# You can use ..........
+message_text = "Welcome Text"
