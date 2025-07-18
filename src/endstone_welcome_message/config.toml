@@ -13,12 +13,14 @@ enabled = true
 type = "chat"
 
 # Title of Toast message
-# Effective only when message_type is 3
+# Effective only when type is toast
 title = "Welcome Title"
 
 # Welcome message text
 # You can use ..........
 text = "Welcome Text"
 
-# Wait before welcome message in seconds
-wait_before = 55
+# Wait before welcome message in seconds.
+# Valid values are between 0 and 10.
+# 0 disables wait_before.
+wait_before = 0
