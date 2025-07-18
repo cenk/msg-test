@@ -10,12 +10,13 @@ class WelcomeMessage(Plugin):
         self.save_default_config()
         self.register_events(self)
         self.welcome_message_enabled = bool(self.config[welcome_message]["enabled"])
-        self.welcome_message_type = str(self.config[welcome_message]["type"])
-        self.welcome_message_title = str(self.config[welcome_message]["title"])
-        self.welcome_message_text = str(self.config[welcome_message]["text"])
-        self.welcome_message_wait_before = int(self.config[welcome_message]["wait_before"])
 
-        if not self.welcome_message_enabled:
+        if self.welcome_message_enabled:
+            self.welcome_message_type = str(self.config[welcome_message]["type"])
+            self.welcome_message_title = str(self.config[welcome_message]["title"])
+            self.welcome_message_text = str(self.config[welcome_message]["text"])
+            self.welcome_message_wait_before = int(self.config[welcome_message]["wait_before"])
+        else
             self.logger.info("Welcome Message is disabled in the config file!")
 
     @event_handler
