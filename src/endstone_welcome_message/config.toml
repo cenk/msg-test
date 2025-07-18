@@ -1,4 +1,10 @@
 [welcome_message]
+
+# Welcome Message master switch
+# true = enabled
+# false = disabled
+enabled = true
+
 # Welcome message type
 # 0 = Disable Welcome Message
 # 1 = Chat message
