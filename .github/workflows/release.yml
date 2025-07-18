@@ -1,6 +1,9 @@
-name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
+name: GitHub Release
 
-on: push
+on: 
+  push:
+    tags: 
+      - '*.*.*'
 
 jobs:
   build:
@@ -21,14 +24,11 @@ jobs:
     - name: Install pypa/build
       run: python3 -m pip install --upgrade build
         
-    - name: Build a binary wheel and a source tarball
+    - name: Build a binary wheel
       run: python3 -m build
     
     - name: Release
       uses: softprops/action-gh-release@v2
-      if: github.ref_type == 'tag'
       with:
-        append_body: true
         generate_release_notes: true
-        make_latest: "true"
-        files: "dist/*.whl"
+        files: "dist/*endstone_*${{ github.ref_name }}*.whl"
