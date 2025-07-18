@@ -34,5 +34,3 @@ class WelcomeMessage(Plugin):
                     event.player.send_title(self.welcome_message_header, self.welcome_message_body)
                 case 5:
                     event.player.send_popup(self.welcome_message_body)
-                case _:
-                    pass
