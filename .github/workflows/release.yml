@@ -29,6 +29,7 @@ jobs:
     
     - name: Release
       uses: softprops/action-gh-release@v2
+      if: ${{ hashFiles('dist/endstone_*${{ github.ref_name }}*.whl') != '' }}
       with:
         generate_release_notes: true
-        files: "dist/*endstone_*${{ github.ref_name }}*.whl"
+        files: "dist/endstone_*${{ github.ref_name }}*.whl"
