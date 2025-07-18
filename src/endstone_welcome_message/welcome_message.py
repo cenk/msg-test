@@ -9,10 +9,9 @@ class WelcomeMessage(Plugin):
     def on_enable(self) -> None:
         self.save_default_config()
         self.register_events(self)
-        self.welcome_message_enabled = bool(self.config["welcome_message"]["enabled"])
+        self.welcome_message_type = max(0, min(int(self.config["welcome_message"]["type"]), 5))
 
-        if self.welcome_message_enabled:
-            self.welcome_message_type = str(self.config["welcome_message"]["type"])
+        if self.welcome_message_type > 0:
             self.welcome_message_title = str(self.config["welcome_message"]["title"])
             self.welcome_message_text = str(self.config["welcome_message"]["text"])
             self.welcome_message_wait_before = max(0, min(int(self.config["welcome_message"]["wait_before"]), 10))
@@ -21,17 +20,17 @@ class WelcomeMessage(Plugin):
 
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
-        if self.welcome_message_enabled:
+        if self.welcome_message_type > 0:
             if self.welcome_message_wait_before > 0:
                 time.sleep(self.welcome_message_wait_before)
             match self.welcome_message_type:
-                case "chat":
+                case 1:
                     event.player.send_message(self.welcome_message_text)
-                case "tip":
+                case 2:
                     event.player.send_tip(self.welcome_message_text)
-                case "toast":
+                case 3:
                     event.player.send_toast(self.welcome_message_title, self.welcome_message_text)
-                case "popup":
+                case 4:
                     event.player.send_popup(self.welcome_message_text)
                 case _:
                     pass
