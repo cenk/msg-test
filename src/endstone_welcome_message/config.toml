@@ -5,11 +5,12 @@
 # 1 = Chat message
 # 2 = Tip message
 # 3 = Toast message
-# 4 = Popup message
+# 4 = Title message
+# 5 = Popup message
 type = 1
 
-# Title of Toast message
-# Effective only when type is toast
+# Header of Toast or Title message
+# Effective only when type is 3 (Toast) or 4 (Title)
 header = "Welcome Header"
 
 # Welcome message body
