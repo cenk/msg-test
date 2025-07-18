@@ -10,6 +10,8 @@ class WelcomeMessage(Plugin):
 
     def on_enable(self) -> None:
         self.logger.info("on_enable is called!")
+        self.save_default_config()
+        self.load_config()
         self.register_events(self)
 
     @event_handler
