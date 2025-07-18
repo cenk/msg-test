@@ -31,5 +31,7 @@ class WelcomeMessage(Plugin):
                     event.player.send_tip(self.welcome_message_text)
                 case "toast":
                     event.player.send_toast(self.welcome_message_title, self.welcome_message_text)
+                case "popup":
+                    event.player.send_popup(self.welcome_message_text)
                 case _:
                     pass
