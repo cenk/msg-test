@@ -20,7 +20,7 @@ class WelcomeMessage(Plugin):
     def on_player_join(self, event: PlayerJoinEvent):
         match message_type:
             case 0:
-                self.logger.info("Welcome Message is disabled in config file!")
+                self.logger.info("Welcome Message is disabled in the config file!")
             case 1:
                 event.player.send_message(message_text)
             case 2:
