@@ -9,7 +9,7 @@ class WelcomeMessage(Plugin):
     def on_enable(self) -> None:
         self.save_default_config()
         self.register_events(self)
-        self.welcome_message_enabled = bool(self.config[welcome-message]["enabled"])
+        self.welcome_message_enabled = bool(self.config["welcome_message"]["enabled"])
 
         if self.welcome_message_enabled:
             self.welcome_message_type = str(self.config["welcome_message"]["type"])
