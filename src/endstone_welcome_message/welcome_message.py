@@ -12,9 +12,9 @@ class WelcomeMessage(Plugin):
         self.logger.info("on_enable is called!")
         self.save_default_config()
         self.register_events(self)
-        self.message_type = self.config["welcome"]["message_type"]
-        self.toast_title = self.config["welcome"]["toast_title"]
-        self.message_text = self.config["welcome"]["message_text"]
+        self.message_type = self.config["message_type"]
+        self.message_title = self.config["message_title"]
+        self.message_text = self.config["message_text"]
         
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
