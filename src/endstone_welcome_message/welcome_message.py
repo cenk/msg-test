@@ -14,4 +14,4 @@ class WelcomeMessage(Plugin):
 
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
-        self.player.send_toast("Welcome", ColorFormat.YELLOW + f"Welcome {event.player.name}!")
+        event.player.send_toast("Welcome", ColorFormat.YELLOW + f"Welcome {event.player.name}!")
