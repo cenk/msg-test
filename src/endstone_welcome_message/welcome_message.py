@@ -21,7 +21,14 @@ class WelcomeMessage(Plugin):
         match message_type:
             case 0:
                 self.logger.info("Welcome Message is disabled in config file!")
-        event.player.send_toast(message_title, message_text)
+            case 1:
+                event.player.send_message(message_text)
+            case 2:
+                event.player.send_tip(message_text)
+            case 3:
+                event.player.send_toast(message_title, message_text)
+            case _:
+                pass
 
     def save_message(self) -> None:
         self.config["notice"]["title"] = self.notice_title
