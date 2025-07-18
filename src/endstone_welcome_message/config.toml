@@ -6,11 +6,10 @@
 enabled = true
 
 # Welcome message type
-# 0 = Disable Welcome Message
-# 1 = Chat message
-# 2 = Tip message
-# 3 = Toast message
-type = 1
+# chat = Chat message
+# tip = Tip message
+# toast = Toast message
+type = "chat"
 
 # Title of Toast message
 # Effective only when message_type is 3
@@ -21,4 +20,4 @@ title = "Welcome Title"
 text = "Welcome Text"
 
 # Wait before welcome message in seconds
-wait_before = 5
+wait_before = 55
