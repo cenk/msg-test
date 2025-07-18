@@ -5,11 +5,6 @@ from endstone.event import event_handler, PlayerJoinEvent
 class WelcomeMessage(Plugin):
     api_version = "0.9"
 
-    def __init__(self):
-        super().__init__()
-        self.last_death_locations = {}
-        self.economy: dict[str, int] = {}
-    
     def on_load(self) -> None:
         self.logger.info("on_load is called!")
 
