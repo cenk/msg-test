@@ -33,7 +33,7 @@ class WelcomeMessage(Plugin):
                 case 4:
                     event.player.send_title(self.welcome_message_header, self.welcome_message_body)
                 case 5:
-                    event.player.send_popup(self.welcome_message_body)
+                    welcome_form()
 
     def welcome_form(self) -> None:
         event.player.send_form(MessageForm(self.welcome_message_header, self.welcome_message_body, "Close", None))
