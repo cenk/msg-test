@@ -4,7 +4,7 @@ from endstone.event import event_handler, PlayerJoinEvent
 import time
 
 class WelcomeMessage(Plugin):
-    api_version = "0.9"
+    api_version = "0.6"
 
     def on_enable(self) -> None:
         self.save_default_config()
