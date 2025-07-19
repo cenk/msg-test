@@ -51,7 +51,7 @@ class WelcomeMessage(Plugin):
             'exp_level': player.exp_level,
             'total_exp': player.total_exp,
             'ping': player.ping,
-            'server_level': self.server.level,
+            'level_name': self.server.level.name,
             'max_players': self.server.max_players,
             'online_players': len(self.server.online_players),
             'start_time': self.server.start_time
