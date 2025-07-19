@@ -10,7 +10,7 @@ class WelcomeMessage(Plugin):
     def on_enable(self) -> None:
         self.save_default_config()
         self.register_events(self)
-        self.welcome_message_type = max(0, min(int(self.config["welcome_message"]["type"]), 5))
+        self.welcome_message_type = max(0, min(int(self.config["welcome_message"]["type"]), 6))
 
         if self.welcome_message_type > 0:
             self.welcome_message_header = str(self.config["welcome_message"]["header"])
