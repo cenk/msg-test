@@ -48,6 +48,8 @@ class WelcomeMessage(Plugin):
     def replace_placeholders(self, player) -> None:
         placeholder = {
             'player_name': player.name,
+            'player_hostname': player.address.hostname,
+            'player_port': player.address.port,
             'exp_level': player.exp_level,
             'total_exp': player.total_exp,
             'ping': player.ping,
