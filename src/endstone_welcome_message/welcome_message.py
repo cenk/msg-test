@@ -48,15 +48,26 @@ class WelcomeMessage(Plugin):
     def replace_placeholders(self, player) -> None:
         placeholder = {
             'player_name': player.name,
+            'player_locale': player.locale,
+            'player_device_os': player.device_os,
+            'player_device_id': player.device_id,
             'player_hostname': player.address.hostname,
             'player_port': player.address.port,
-            'exp_level': player.exp_level,
-            'total_exp': player.total_exp,
-            'ping': player.ping,
-            'level_name': self.server.level.name,
-            'max_players': self.server.max_players,
-            'online_players': len(self.server.online_players),
-            'start_time': self.server.start_time
+            'player_game_mode': player.game_mode.name,
+            'player_game_version': player.game_version,
+            'player_exp_level': player.exp_level,
+            'player_total_exp': player.total_exp,
+            'player_exp_progress': player.exp_progress,
+            'player_ping': player.ping,
+            'server_level_name': self.server.level.name,
+            'server_max_players': self.server.max_players,
+            'server_online_players': len(self.server.online_players),
+            'server_start_time': self.server.start_time,
+            'server_locale': self.server.language.locale,
+            'server_minecraft_version': self.server.minecraft_version,
+            'server_port': self.server.port,
+            'server_port_v6': self.server.port_v6,
+            'server_protocol_version': self.server.protocol_version
         }
         self.welcome_message_header = self.welcome_message_header.format(**placeholder)
         self.welcome_message_body = self.welcome_message_body.format(**placeholder)
