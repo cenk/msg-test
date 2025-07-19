@@ -1,4 +1,4 @@
-from endstone import ColorFormat
+from endstone import Server, ColorFormat
 from endstone.plugin import Plugin
 from endstone.event import event_handler, PlayerJoinEvent
 from endstone.form import ModalForm, Label
@@ -20,12 +20,17 @@ class WelcomeMessage(Plugin):
             self.logger.info("Welcome Message is disabled in the config file!")
 
     @event_handler
-    def on_player_join(self, event: PlayerJoinEvent):
+    def on_player_join(self, event: PlayerJoinEvent, server: Server):
         if self.welcome_message_type > 0:
             if self.welcome_message_wait_before > 0:
                 time.sleep(self.welcome_message_wait_before)
-            player_name = event.player.name
-            self.logger.info("Player name: " + player_name)
+            placeholder = {
+                'player_name': event.player.name,
+                'server_name': server.name,
+                'max_players': server.max_players,
+                'online_players': server.online_players,
+                'start_time': server.start_time
+            }
             match self.welcome_message_type:
                 case 1:
                     event.player.send_message(self.welcome_message_body)
