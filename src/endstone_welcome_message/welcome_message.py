@@ -37,10 +37,10 @@ class WelcomeMessage(Plugin):
                     event.player.send_title(self.welcome_message_header, self.welcome_message_body)
                 case 6:
                     welcome_form = ActionForm(
-                        title=f'{ColorFormat.BOLD}{ColorFormat.LIGHT_PURPLE}' + self.welcome_message_header,
-                        content=f'{ColorFormat.GREEN}' + self.welcome_message_body,
+                        title=self.welcome_message_header,
+                        content=self.welcome_message_body + '\n',
                     )
-                    welcome_form.add_button(f'{ColorFormat.YELLOW}Close',
-                        icon='textures/ui/cancel', on_click=None)
+                    welcome_form.add_button('Close', icon=None, on_click=None)
                     welcome_form.on_close = None
+                    welcome_form.on_submit = None
                     event.player.send_form(welcome_form)
