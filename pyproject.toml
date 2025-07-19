@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "endstone-welcome-message"
-version = "0.1.15"
+version = "0.1.16"
 authors = [
     { name = "cenk", email = "cenk@cenk.app" }
 ]
@@ -12,7 +12,7 @@ description = "An Endstone plugin that allows you to send players a welcome mess
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-keywords = ["minecraft", "endstone", "plugin", "welcome", "message", "chat", "tip", "toast", "title", "popup"]
+keywords = ["minecraft", "endstone", "plugin", "welcome", "message", "chat", "tip", "toast", "title", "popup", "form"]
 
 [project.urls]
 Homepage = "https://github.com/cenk/endstone-welcome-message"
