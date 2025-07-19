@@ -22,7 +22,7 @@ class WelcomeMessage(Plugin):
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
         if self.welcome_message_type > 0:
-            self.set_placeholders(event.player)
+            self.replace_placeholders(event.player)
             if self.welcome_message_wait_before > 0:
                 time.sleep(self.welcome_message_wait_before)
             match self.welcome_message_type:
@@ -40,12 +40,12 @@ class WelcomeMessage(Plugin):
                     welcome_form = ModalForm(
                         title=self.replace_placeholders(self.welcome_message_header),
                         controls=[Label(text=self.replace_placeholders(self.welcome_message_body) + '\n\n')],
-                        submit_button='OK'
+                        submit_button=self.welcome_message_form_button_text
                     )
                     event.player.send_form(welcome_form)
 
-    def set_placeholders(self, player) -> None:
-        self.placeholder = {
+    def replace_placeholders(self, player) -> None:
+        placeholder = {
             'player_name': player.name,
             'exp_level': player.exp_level,
             'total_exp': player.total_exp,
@@ -55,7 +55,6 @@ class WelcomeMessage(Plugin):
             'online_players': len(self.server.online_players),
             'start_time': self.server.start_time
         }
-
-    def replace_placeholders(self, string: str) -> str:
-        return string.format(**self.placeholder) 
-        
+        self.welcome_message_header = self.welcome_message_header.format(**placeholder)
+        self.welcome_message_body = self.welcome_message_body.format(**placeholder)
+        self.welcome_message_form_button_text = self.welcome_message_form_button_text.format(**placeholder)
