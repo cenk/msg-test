@@ -66,8 +66,8 @@ class WelcomeMessage(Plugin):
             'server_locale': self.server.language.locale,
             'server_minecraft_version': self.server.minecraft_version,
             'server_port': self.server.port,
-            'server_port_v6': self.server.port_v6,
-            'server_protocol_version': self.server.protocol_version
+            'server_port_v6': self.server.port_v6
+            #'server_protocol_version': self.server.protocol_version
         }
         self.welcome_message_header = self.welcome_message_header.format(**placeholder)
         self.welcome_message_body = self.welcome_message_body.format(**placeholder)
