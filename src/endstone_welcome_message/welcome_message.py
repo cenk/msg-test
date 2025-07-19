@@ -26,7 +26,10 @@ class WelcomeMessage(Plugin):
                 time.sleep(self.welcome_message_wait_before)
             placeholder = {
                 'player_name': event.player.name,
-                'server_name': self.server.name,
+                'exp_level': event.player.exp_level,
+                'total_exp': event.player.total_exp,
+                'ping': event.player.ping,
+                'server_level': self.server.level,
                 'max_players': self.server.max_players,
                 'online_players': len(self.server.online_players),
                 'start_time': self.server.start_time
