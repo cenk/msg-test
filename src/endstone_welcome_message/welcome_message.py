@@ -22,7 +22,7 @@ class WelcomeMessage(Plugin):
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
         if self.welcome_message_type > 0:
-            self.set_placeholders()
+            self.set_placeholders(event.player)
             if self.welcome_message_wait_before > 0:
                 time.sleep(self.welcome_message_wait_before)
             match self.welcome_message_type:
