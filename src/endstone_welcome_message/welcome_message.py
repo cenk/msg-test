@@ -38,7 +38,7 @@ class WelcomeMessage(Plugin):
                 case 6:
                     welcome_form = ModalForm(
                         title=self.welcome_message_header,
-                        content=self.welcome_message_body + '\n\n',
+                        controls=[Label(text=self.welcome_message_body + '\n\n')],
                         submit_button='OK'
                     )
                     event.player.send_form(welcome_form)
