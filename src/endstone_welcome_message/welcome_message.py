@@ -1,7 +1,7 @@
 from endstone import ColorFormat
 from endstone.plugin import Plugin
 from endstone.event import event_handler, PlayerJoinEvent
-from endstone.form import ModalForm
+from endstone.form import ModalForm, Label
 import time
 
 class WelcomeMessage(Plugin):
