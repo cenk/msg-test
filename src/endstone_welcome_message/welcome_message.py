@@ -22,18 +22,9 @@ class WelcomeMessage(Plugin):
     @event_handler
     def on_player_join(self, event: PlayerJoinEvent):
         if self.welcome_message_type > 0:
+            self.set_placeholders()
             if self.welcome_message_wait_before > 0:
                 time.sleep(self.welcome_message_wait_before)
-            placeholder = {
-                'player_name': event.player.name,
-                'exp_level': event.player.exp_level,
-                'total_exp': event.player.total_exp,
-                'ping': event.player.ping,
-                'server_level': self.server.level,
-                'max_players': self.server.max_players,
-                'online_players': len(self.server.online_players),
-                'start_time': self.server.start_time
-            }
             match self.welcome_message_type:
                 case 1:
                     event.player.send_message(self.welcome_message_body)
@@ -52,3 +43,19 @@ class WelcomeMessage(Plugin):
                         submit_button='OK'
                     )
                     event.player.send_form(welcome_form)
+
+    def set_placeholders(self, player) -> None:
+        self.placeholder = {
+            'player_name': event.player.name,
+            'exp_level': event.player.exp_level,
+            'total_exp': event.player.total_exp,
+            'ping': event.player.ping,
+            'server_level': self.server.level,
+            'max_players': self.server.max_players,
+            'online_players': len(self.server.online_players),
+            'start_time': self.server.start_time
+        }
+
+    def get_placeholders(self, string: str) -> str:
+        return string.format(**self.placeholder) 
+        
