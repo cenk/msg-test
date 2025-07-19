@@ -33,7 +33,7 @@ class WelcomeMessage(Plugin):
                 case 3:
                     event.player.send_popup(self.welcome_message_body)
                 case 4:
-                    event.player.send_toast(self.welcome_message_header.format(**placeholder), self.welcome_message_body.format(**placeholder))
+                    event.player.send_toast(self.replace_placeholders(self.welcome_message_header), self.replace_placeholders(self.welcome_message_body))
                 case 5:
                     event.player.send_title(self.welcome_message_header.format(**placeholder), self.welcome_message_body.format(**placeholder))
                 case 6:
