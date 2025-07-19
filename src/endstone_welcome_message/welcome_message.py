@@ -1,7 +1,7 @@
 from endstone import ColorFormat
 from endstone.plugin import Plugin
 from endstone.event import event_handler, PlayerJoinEvent
-from endstone.form import MessageForm
+from endstone.form import ActionForm
 import time
 
 class WelcomeMessage(Plugin):
@@ -36,7 +36,7 @@ class WelcomeMessage(Plugin):
                 case 5:
                     event.player.send_title(self.welcome_message_header, self.welcome_message_body)
                 case 6:
-                    welcome_form = MessageForm(
+                    welcome_form = ActionForm(
                         title=f'{ColorFormat.BOLD}{ColorFormat.LIGHT_PURPLE}' + self.welcome_message_header,
                         content=f'{ColorFormat.GREEN}' + self.welcome_message_body,
                     )
