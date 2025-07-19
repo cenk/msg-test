@@ -3,12 +3,13 @@
 # Welcome message type
 # Valid values are between 0 and 5.
 # 0 = Disable Welcome Message
-# 1 = Chat message
-# 2 = Tip message
-# 3 = Toast message
-# 4 = Title message
-# 5 = Popup message
-type = 1
+# 1 = Chat
+# 2 = Tip
+# 3 = Popup
+# 4 = Toast
+# 5 = Title
+# 6 = Form
+type = 6
 
 # Toast or Title message header
 # Effective only when type is 3 (Toast) or 4 (Title)
