@@ -46,10 +46,10 @@ class WelcomeMessage(Plugin):
 
     def set_placeholders(self, player) -> None:
         self.placeholder = {
-            'player_name': event.player.name,
-            'exp_level': event.player.exp_level,
-            'total_exp': event.player.total_exp,
-            'ping': event.player.ping,
+            'player_name': player.name,
+            'exp_level': player.exp_level,
+            'total_exp': player.total_exp,
+            'ping': player.ping,
             'server_level': self.server.level,
             'max_players': self.server.max_players,
             'online_players': len(self.server.online_players),
