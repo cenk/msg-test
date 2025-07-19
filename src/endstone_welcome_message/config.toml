@@ -9,7 +9,7 @@
 # 4 = Toast
 # 5 = Title
 # 6 = Form
-type = 6
+type = 1
 
 # Toast or Title message header
 # Effective only when type is 3 (Toast) or 4 (Title)
@@ -18,6 +18,9 @@ header = "Welcome Header"
 # Welcome message body
 # You can use ..........
 body = "Welcome message"
+
+# Form Button text
+form_button_text = "OK"
 
 # Wait before welcome message in seconds.
 # Valid values are between 0 and 10.
