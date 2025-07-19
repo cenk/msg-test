@@ -1,4 +1,4 @@
-from endstone import Server, ColorFormat
+from endstone import ColorFormat
 from endstone.plugin import Plugin
 from endstone.event import event_handler, PlayerJoinEvent
 from endstone.form import ModalForm, Label
@@ -26,10 +26,10 @@ class WelcomeMessage(Plugin):
                 time.sleep(self.welcome_message_wait_before)
             placeholder = {
                 'player_name': event.player.name,
-                'server_name': server.name,
-                'max_players': server.max_players,
-                'online_players': server.online_players,
-                'start_time': server.start_time
+                'server_name': self.server.name,
+                'max_players': self.server.max_players,
+                'online_players': len(self.server.online_players),
+                'start_time': self.server.start_time
             }
             match self.welcome_message_type:
                 case 1:
@@ -41,7 +41,7 @@ class WelcomeMessage(Plugin):
                 case 4:
                     event.player.send_toast(self.welcome_message_header.format(**placeholder), self.welcome_message_body.format(**placeholder))
                 case 5:
-                    event.player.send_title(self.welcome_message_header, self.welcome_message_body)
+                    event.player.send_title(self.welcome_message_header.format(**placeholder), self.welcome_message_body.format(**placeholder))
                 case 6:
                     welcome_form = ModalForm(
                         title=self.welcome_message_header,
