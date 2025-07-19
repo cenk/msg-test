@@ -20,7 +20,7 @@ class WelcomeMessage(Plugin):
             self.logger.info("Welcome Message is disabled in the config file!")
 
     @event_handler
-    def on_player_join(self, event: PlayerJoinEvent, server: Server):
+    def on_player_join(self, event: PlayerJoinEvent):
         if self.welcome_message_type > 0:
             if self.welcome_message_wait_before > 0:
                 time.sleep(self.welcome_message_wait_before)
