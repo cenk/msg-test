@@ -27,19 +27,19 @@ class WelcomeMessage(Plugin):
                 time.sleep(self.welcome_message_wait_before)
             match self.welcome_message_type:
                 case 1:
-                    event.player.send_message(self.welcome_message_body)
+                    event.player.send_message(self.replace_placeholders(self.welcome_message_body))
                 case 2:
-                    event.player.send_tip(self.welcome_message_body)
+                    event.player.send_tip(self.replace_placeholders(self.welcome_message_body))
                 case 3:
-                    event.player.send_popup(self.welcome_message_body)
+                    event.player.send_popup(self.replace_placeholders(self.welcome_message_body))
                 case 4:
                     event.player.send_toast(self.replace_placeholders(self.welcome_message_header), self.replace_placeholders(self.welcome_message_body))
                 case 5:
-                    event.player.send_title(self.welcome_message_header.format(**placeholder), self.welcome_message_body.format(**placeholder))
+                    event.player.send_title(self.replace_placeholders(self.welcome_message_header), self.replace_placeholders(self.welcome_message_body))
                 case 6:
                     welcome_form = ModalForm(
-                        title=self.welcome_message_header,
-                        controls=[Label(text=self.welcome_message_body + '\n\n')],
+                        title=self.replace_placeholders(self.welcome_message_header),
+                        controls=[Label(text=self.replace_placeholders(self.welcome_message_body) + '\n\n')],
                         submit_button='OK'
                     )
                     event.player.send_form(welcome_form)
