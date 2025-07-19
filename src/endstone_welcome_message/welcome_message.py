@@ -1,7 +1,7 @@
 from endstone import ColorFormat
 from endstone.plugin import Plugin
 from endstone.event import event_handler, PlayerJoinEvent
-from endstone.form import ActionForm
+from endstone.form import ModalForm
 import time
 
 class WelcomeMessage(Plugin):
@@ -36,11 +36,9 @@ class WelcomeMessage(Plugin):
                 case 5:
                     event.player.send_title(self.welcome_message_header, self.welcome_message_body)
                 case 6:
-                    welcome_form = ActionForm(
+                    welcome_form = ModalForm(
                         title=self.welcome_message_header,
-                        content=self.welcome_message_body + '\n',
+                        content=self.welcome_message_body + '\n\n',
+                        submit_button='OK'
                     )
-                    welcome_form.add_button('Close', icon=None, on_click=None)
-                    welcome_form.on_close = None
-                    welcome_form.on_submit = None
                     event.player.send_form(welcome_form)
