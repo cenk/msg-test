@@ -56,6 +56,6 @@ class WelcomeMessage(Plugin):
             'start_time': self.server.start_time
         }
 
-    def get_placeholders(self, string: str) -> str:
+    def replace_placeholders(self, string: str) -> str:
         return string.format(**self.placeholder) 
         
