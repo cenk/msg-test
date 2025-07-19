@@ -39,3 +39,7 @@ class WelcomeMessage(Plugin):
                         title=f'{ColorFormat.BOLD}{ColorFormat.LIGHT_PURPLE}' + self.welcome_message_header,
                         content=f'{ColorFormat.GREEN}' + self.welcome_message_body,
                     )
+                    welcome_form.add_button(f'{ColorFormat.YELLOW}Close',
+                        icon='textures/ui/cancel', on_click=None)
+                    welcome_form.on_close = None
+                    event.player.send_form(welcome_form)
