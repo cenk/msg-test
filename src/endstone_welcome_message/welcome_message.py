@@ -24,6 +24,7 @@ class WelcomeMessage(Plugin):
         if self.welcome_message_type > 0:
             if self.welcome_message_wait_before > 0:
                 time.sleep(self.welcome_message_wait_before)
+            player_name = event.player.name
             match self.welcome_message_type:
                 case 1:
                     event.player.send_message(self.welcome_message_body)
